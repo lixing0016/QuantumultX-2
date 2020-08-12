@@ -178,7 +178,7 @@ proxy-groups:
       - 新加坡
       - 美国
       
-   - name: "全球加速"
+  - name: "全球加速"
     type: select
     proxies:
       - 节点选择
