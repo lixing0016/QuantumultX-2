@@ -59,7 +59,7 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
       
- 日本: 
+  日本: 
     type: http
     url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
     interval: 3600
@@ -89,7 +89,7 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
       
-   美国: 
+  美国: 
     type: http
     url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
     interval: 3600
