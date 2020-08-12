@@ -41,7 +41,7 @@ proxy-providers:
 
   香港: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=香港"
     interval: 3600
     path: ./Proxy/香港.yaml
     health-check:
@@ -51,7 +51,7 @@ proxy-providers:
       
   台湾: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=台湾"
     interval: 3600
     path: ./Proxy/台湾.yaml
     health-check:
@@ -61,7 +61,7 @@ proxy-providers:
       
   日本: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=日本"
     interval: 3600
     path: ./Proxy/日本.yaml
     health-check:
@@ -71,7 +71,7 @@ proxy-providers:
       
   韩国: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=韩国"
     interval: 3600
     path: ./Proxy/韩国.yaml
     health-check:
@@ -81,7 +81,7 @@ proxy-providers:
       
   新加坡: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=新加坡"
     interval: 3600
     path: ./Proxy/新加坡.yaml
     health-check:
@@ -91,7 +91,7 @@ proxy-providers:
       
   美国: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=美国"
     interval: 3600
     path: ./Proxy/美国.yaml
     health-check:
@@ -101,7 +101,7 @@ proxy-providers:
       
   特殊: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=特殊"
     interval: 3600
     path: ./Proxy/特殊.yaml
     health-check:
@@ -111,7 +111,7 @@ proxy-providers:
       
   IPLC: 
     type: http
-    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    url: "https://duckduckgo.security/user/sub.php?token=IPLC"
     interval: 3600
     path: ./Proxy/IPLC.yaml
     health-check:
