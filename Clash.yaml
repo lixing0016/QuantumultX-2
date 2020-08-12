@@ -22,8 +22,8 @@ dns:
 default-nameserver:
     - 119.29.29.29
     - 1.0.0.1
-  enhanced-mode: redir-host # or fake-ip
-  fake-ip-range: 198.18.0.1/16 # Fake IP addresses pool CIDR
+  enhanced-mode: redir-host
+  fake-ip-range: 198.18.0.1/16
   
   nameserver:
     - 119.29.29.29
