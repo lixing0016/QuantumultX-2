@@ -22,16 +22,16 @@ dns:
 default-nameserver:
     - 119.29.29.29
     - 1.0.0.1
-  enhanced-mode: redir-host
-  fake-ip-range: 198.18.0.1/16
+enhanced-mode: redir-host
+fake-ip-range: 198.18.0.1/16
   
-  nameserver:
+nameserver:
     - 119.29.29.29
 
 fallback:
     - https://cloudflare-dns.com/dns-query
 
-  fallback-filter:
+fallback-filter:
     geoip: true
     ipcidr:
 
