@@ -38,79 +38,205 @@ fallback:
 
 proxies:
 
-# 服务器节点订阅
 proxy-providers:
-  # name: # Provider 名称
-  #   type: http # http 或 file
-  #   path: # 文件路径
-  #   url: # 只有当类型为 HTTP 时才可用，您不需要在本地空间中创建新文件。
-  #   interval: # 自动更新间隔，仅在类型为 HTTP 时可用
-  #   health-check: # 健康检查选项从此处开始
-  #     enable:
-  #     url: 
-  #     interval: 
 
-  #
-  # 「url」参数填写订阅链接
-  #
-  # 订阅链接可以使用 API 进行转换，如：https://sub.dler.io/
-  #
-  # 1.模式选择「进阶模式」 2.填写订阅链接 3.勾选「输出为 Node List」 4.「生成订阅链接」
-  #
-
-  DuckDuckGo-Sub: # 冲鸭机场订阅链接
+  香港: 
     type: http
     url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
     interval: 3600
-    path: ./Proxy/ProxyList.yaml # 不同机场不同命名
+    path: ./Proxy/香港.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+  台湾: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/台湾.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+ 日本: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/日本.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+  韩国: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/韩国.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+  新加坡: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/新加坡.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+   美国: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/美国.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+  特殊: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/特殊.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      
+  IPLC: 
+    type: http
+    url: "https://duckduckgo.security/user/sub.php?token=DivineEngine"
+    interval: 3600
+    path: ./Proxy/IPLC.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
 
 proxy-groups:
-  - name: "Fallback"
-    type: fallback
-    proxies:
-      - HK
-      - US
-      - SG
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-
-  - name: "PROXY"
+  - name: "节点选择"
     type: select
     proxies:
-      - Fallback
-      - HK
-      - US
-      - SG
-      - DuckDuckGo
-
-  - name: "MATCH"
+      - 香港
+      - 台湾
+      - 日本
+      - 韩国
+      - 新加坡
+      - 美国
+      - 特殊
+      - IPLC
+      
+  - name: "电报代理"
     type: select
     proxies:
-      - PROXY
+      - 新加坡
+      - IPLC
+      - 节点选择
+      - DIRECT
+      
+  - name: "网飞影视"
+    type: select
+    proxies:
+      - 新加坡
+      - 香港
+      - 台湾
+      - 节点选择
+
+  - name: "国际媒体"
+    type: select
+    proxies:
+      - 香港
+      - 台湾
+      - 日本
+      - 韩国
+      - 新加坡
+      - 美国
+      - 特殊
+
+  - name: "港台番剧"
+    type: select
+    proxies:
+      - 香港
+      - 台湾
+      - DIRECT
+      
+  - name: "苹果服务"
+    type: select
+    proxies:
+      - DIRECT
+      - 香港
+      - 台湾
+      - 日本
+      - 韩国
+      - 新加坡
+      - 美国
+      
+   - name: "全球加速"
+    type: select
+    proxies:
+      - 节点选择
+      - 香港
+      - 台湾
+      - 日本
+      - 韩国
+      - 新加坡
+      - 美国
+      - 特殊
+      - IPLC
+
+
+  - name: "黑白名单"
+    type: select
+    proxies:
+      - 节点选择
       - DIRECT
 
-  - name: "Streaming"
+  - name: "香港"
     type: select
-    proxies:
-      - PROXY
-      - HK
-      - US
-      - SG
-
-  - name: "StreamingSE"
+    use:
+      - 香港-Sub
+      
+  - name: "台湾"
     type: select
-    proxies:
-      - DIRECT
-      - HK
-
-  - name: "DuckDuckGo"
+    use:
+      - 台湾-Sub      
+      
+  - name: "日本"
+    type: select
+    use:
+      - 日本-Sub
+      
+  - name: "韩国"
+    type: select
+    use:
+      - 韩国-Sub 
+      
+  - name: "新加坡"
+    type: select
+    use:
+      - 新加坡-Sub
+      
+  - name: "美国"
+    type: select
+    use:
+      - 美国-Sub
+      
+  - name: "特殊"
+    type: select
+    use:
+      - 特殊-Sub 
+      
+  - name: "IPLC"
     type: select # 亦可使用 fallback 或 load-balance
     use:
-      - DuckDuckGo-Sub
+      - IPLC-Sub
 
 rule-providers:
 
@@ -121,28 +247,77 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Unbreak.yaml
     interval: 86400
 
-  Streaming:
+  Advertising:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Guard/Advertising.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Advertising.yaml
+    interval: 86400
+    
+  Hijacking:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Guard/Hijacking.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Hijacking.yaml
+    interval: 86400
+
+  Privacy:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Guard/Privacy.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Privacy.yaml
+    interval: 86400
+
+  电报代理:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/Telegram/Telegram.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Telegram/Telegram.yaml
+    interval: 86400
+
+  巴哈姆特:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/Video/Bahamut.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Bahamut.yaml
+    interval: 86400
+
+  网飞影视:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/Video/Netflix.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
+    interval: 86400
+
+  国际媒体:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingMedia/Streaming.yaml
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml
     interval: 86400
 
-  StreamingSE:
+  港台番剧:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingMedia/StreamingSE.yaml
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/StreamingSE.yaml
     interval: 86400
 
-  Global:
+  全球加速:
     type: http
     behavior: classical
     path: ./RuleSet/Global.yaml
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
     interval: 86400
 
-  China:
+  苹果服务:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/Apple/Apple.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Apple/Apple.yaml
+    interval: 86400
+
+  国内网站:
     type: http
     behavior: classical
     path: ./RuleSet/China.yaml
@@ -160,14 +335,28 @@ rule-providers:
 rules:
 
   - RULE-SET,Unbreak,DIRECT
+  
+  - RULE-SET,Advertising,REJECT
+  
+  - RULE-SET,Hijacking,REJECT
+  
+  - RULE-SET,Privacy,REJECT
+  
+  - RULE-SET,电报代理,新加坡
+  
+  - RULE-SET,巴哈姆特,台湾
+  
+  - RULE-SET,网飞影视,新加坡
 
-  - RULE-SET,Streaming,Streaming
+  - RULE-SET,国际媒体,国际媒体
 
-  - RULE-SET,StreamingSE,StreamingSE
+  - RULE-SET,港台番剧,港台番剧
 
-  - RULE-SET,Global,PROXY
+  - RULE-SET,全球加速,全球加速
+  
+  - RULE-SET,苹果服务,苹果服务
 
-  - RULE-SET,China,DIRECT
+  - RULE-SET,国内网站,DIRECT
 
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
@@ -181,4 +370,4 @@ rules:
   
   - GEOIP,CN,DIRECT
 
-  - MATCH,MATCH
+  - MATCH,黑白名单
